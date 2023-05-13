@@ -4,6 +4,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
+
+/**
+ * Spector
+ */
+// const SPECTOR = require('spectorjs')
+// const spector = new SPECTOR.Spector()
+// spector.displayUI()
+
 /**
  * Base
  */
@@ -33,32 +41,49 @@ const gltfLoader = new GLTFLoader()
 gltfLoader.setDRACOLoader(dracoLoader)
 
 /**
- * Object
+ * Textures
  */
-const cube = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial()
-)
-
-scene.add(cube)
-
-/**
- * Model
- */
-gltfLoader.load(
-    'portal.glb',
-    (gltf) => 
-    {
-        scene.add(gltf.scene)
-        console.log(gltf.scene)
-    }
-)
+const bakedTexture = textureLoader.load('baked.jpg')
 
 
 /**
  * Materials
  */
-const bakedMaterial = new THREE.MeshBasicMaterial({color: 0xff0000})
+const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
+bakedTexture.flipY = false
+
+bakedTexture.encoding = THREE.sRGBEncoding
+
+//pole light
+const poleLightMaterial = new THREE.MeshBasicMaterial({color: 0xffffe5})
+
+//portal light
+const portalLightMaterial = new THREE.MeshBasicMaterial({color: 0xffffe5})
+
+/**
+ * Model
+ */
+gltfLoader.load(
+    'portalmerged.glb',
+    (gltf) => 
+    {
+        const bakedMesh = gltf.scene.children.find(child => child.name === 'baked')
+        bakedMesh.material = bakedMaterial
+
+        //finding the emmisive materials
+        const portalLightMesh = gltf.scene.children.find(child => child.name === 'portal')
+        const poleLightAMesh = gltf.scene.children.find(child => child.name === 'lightemmision')
+        const poleLightBMesh = gltf.scene.children.find(child => child.name === 'lightemmision2')
+
+        poleLightAMesh.material = poleLightMaterial
+        poleLightBMesh.material = poleLightMaterial
+        portalLightMesh.material = portalLightMaterial
+        
+        scene.add(gltf.scene)
+        console.log(gltf.scene)
+    }
+)
+
 
 
 /**
@@ -82,6 +107,10 @@ window.addEventListener('resize', () =>
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+    //encoding
+    renderer.outputEncoding = THREE.sRGBEncoding
+
 })
 
 /**
