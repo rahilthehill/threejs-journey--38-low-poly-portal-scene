@@ -1,7 +1,13 @@
 # My rendition of the portal scene from the Threejs journey by @brunosimon
 
-## Setup on vercel
-Link [null](google.com)
+## build on vercel
+List of domains & names for potential expansion of the "universe" for this
+[phantasmal](phantasmal.vercel.app)
+[dreamgate](dreamgate.vercel.app)
+[elaysian](elaysian.vercel.app)
+[esoteric](esoteric.vercel.app)
+[otherworlds](otherworlds.vercel.app)
+[backup domain](https://threejs-journey-38-low-poly-portal-scene.vercel.app/)
 
 ## Setup (Nodejs & Vite)
 Download [Node.js](https://nodejs.org/en/download/).
