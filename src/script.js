@@ -108,8 +108,7 @@ window.addEventListener('resize', () =>
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-    //encoding
-    renderer.outputEncoding = THREE.sRGBEncoding
+
 
 })
 
@@ -136,7 +135,8 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
+//encoding
+renderer.outputEncoding = THREE.sRGBEncoding
 /**
  * Animate
  */
