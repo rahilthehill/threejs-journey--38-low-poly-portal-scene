@@ -181,6 +181,7 @@ controls.enableDamping = true
 
 //FOG
 // scene.fog = new THREE.Fog(0x2F342D, 3, 19 );
+//commented out
 
 
 
