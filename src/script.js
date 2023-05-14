@@ -6,6 +6,8 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import firefliesVertexShader from './shader/fireflies/vertex.glsl'
 import firefliesFragmentShader from './shader/fireflies/fragment.glsl'
 import { BufferAttribute } from 'three'
+import portalVertexShader from './shader/portal/vertex.glsl'
+import portalFragmentShader from './shader/portal/fragment.glsl'
 
 /**
  * Spector
@@ -61,7 +63,19 @@ bakedTexture.encoding = THREE.sRGBEncoding
 const poleLightMaterial = new THREE.MeshBasicMaterial({color: 0xffffe5})
 
 //portal light
-const portalLightMaterial = new THREE.MeshBasicMaterial({color: 0xffffe5})
+const portalLightMaterial = new THREE.ShaderMaterial({
+
+    uniforms: {
+
+        uTime: {value: 0},
+        uColorStart: {value: new THREE.Color(0xff0000)},
+        uColorEnd: {value: new THREE.Color(0x000ff)}
+
+    },
+    vertexShader: portalVertexShader,
+    fragmentShader: portalFragmentShader
+
+})
 
 /**
  * Model
@@ -217,7 +231,7 @@ const tick = () =>
 
     //uTime shader value updated per tick
     firefliesMaterial.uniforms.uTime.value = elapsedTime
-
+    portalLightMaterial.uniforms.uTime.value = elapsedTime
     // Update controls
     controls.update()
 

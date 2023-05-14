@@ -26,5 +26,7 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 ```
-
+## Credits
+Model made in blender
+Portal shader from Stefan Gustavson (Classic Perlin 3D Noise)
 
