@@ -8,6 +8,7 @@ html,
 body
 {
     overflow: hidden;
+    cursor: none;
 }
 
 .webgl
@@ -17,3 +18,17 @@ body
     left: 0;
     outline: none;
 }
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px; /* Adjust the size of the cursor dot */
+    height: 20px; /* Adjust the size of the cursor dot */
+    border-radius: 50%; /* Make the dot round */
+    background-color: white; /* Set the initial color of the dot */
+    box-shadow: 0 0 10px white; /* Add a soft glow effect to the dot */
+    pointer-events: none; /* Make the dot ignore mouse events */
+    z-index: 9999; /* Ensure the dot stays on top of other elements */
+  }
+  
