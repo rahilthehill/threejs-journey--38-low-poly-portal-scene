@@ -98,7 +98,12 @@ strength += outerGlow;
 //step
 strength = strength + step(-0.2, strength) * 0.8;
 
+//clamp color
+strength = clamp(strength, 0.0, 1.0);
 
-gl_FragColor = vec4(strength, strength, strength, 1.0);
+//final color
+vec3 color = mix(uColorStart, uColorEnd, strength);
+
+gl_FragColor = vec4(color, 1.0);
 
 }

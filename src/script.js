@@ -59,6 +59,17 @@ bakedTexture.flipY = false
 
 bakedTexture.encoding = THREE.sRGBEncoding
 
+debugObject.portalColorStart = '#000000'
+debugObject.portalColorEnd = '#ffffff'
+
+gui.addColor(debugObject, 'portalColorStart').onChange(()=>{
+    portalLightMaterial.uniforms.uColorStart.value.set(debugObject.portalColorStart)
+}).name('Inner portal glow')
+
+gui.addColor(debugObject, 'portalColorEnd').onChange(()=>{
+    portalLightMaterial.uniforms.uColorEnd.value.set(debugObject.portalColorEnd)
+}).name('Outer portal glow')
+
 //pole light
 const poleLightMaterial = new THREE.MeshBasicMaterial({color: 0xffffe5})
 
@@ -68,14 +79,16 @@ const portalLightMaterial = new THREE.ShaderMaterial({
     uniforms: {
 
         uTime: {value: 0},
-        uColorStart: {value: new THREE.Color(0xff0000)},
-        uColorEnd: {value: new THREE.Color(0x000ff)}
+        uColorStart: {value: new THREE.Color(debugObject.portalColorStart)},
+        uColorEnd: {value: new THREE.Color(debugObject.portalColorEnd)}
 
     },
     vertexShader: portalVertexShader,
     fragmentShader: portalFragmentShader
 
 })
+
+
 
 /**
  * Model
