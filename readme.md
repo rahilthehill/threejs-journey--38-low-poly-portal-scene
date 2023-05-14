@@ -1,7 +1,13 @@
-# Three.js Journey
+# My rendition of the portal scene from the Threejs journey by @brunosimon
 
-## Setup
+## Setup on vercel
+Link [null](google.com)
+
+## Setup (Nodejs & Vite)
 Download [Node.js](https://nodejs.org/en/download/).
+
+Lesson link [Chapter 6 - Threejs Journey](https://threejs-journey.com/lessons/creating-a-scene-in-blender).
+
 Run this followed commands:
 
 ``` bash
@@ -14,3 +20,5 @@ npm run dev
 # Build for production in the dist/ directory
 npm run build
 ```
+
+
