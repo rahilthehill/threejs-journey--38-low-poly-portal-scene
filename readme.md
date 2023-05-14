@@ -2,11 +2,11 @@
 
 ## build on vercel
 List of domains & names for potential expansion of the "universe" for this
-[phantasmal](phantasmal.vercel.app)
-[dreamgate](dreamgate.vercel.app)
-[elaysian](elaysian.vercel.app)
-[esoteric](esoteric.vercel.app)
-[otherworlds](otherworlds.vercel.app)
+[phantasmal](https://phantasmal.vercel.app)
+[dreamgate](https://dreamgate.vercel.app)
+[elaysian](https://elaysian.vercel.app)
+[esoteric](https://esoteric.vercel.app)
+[otherworlds](https://otherworlds.vercel.app)
 [backup domain](https://threejs-journey-38-low-poly-portal-scene.vercel.app/)
 
 ## Setup (Nodejs & Vite)
