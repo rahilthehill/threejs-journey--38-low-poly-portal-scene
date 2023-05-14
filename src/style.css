@@ -32,3 +32,30 @@ body
     z-index: 9999; /* Ensure the dot stays on top of other elements */
   }
   
+  .overlay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    z-index: 9998;
+    pointer-events: none;
+  }
+  
+  .instructions {
+    opacity: 0.5;
+    position: relative;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.685);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Replace 'Your Desired Font' with the actual font name */
+    font-size: 0.9vh;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .instructions.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  

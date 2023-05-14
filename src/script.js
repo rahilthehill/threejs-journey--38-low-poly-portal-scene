@@ -273,3 +273,19 @@ window.addEventListener('mousemove', function (event) {
     cursor.style.top = event.pageY + 'px';
   });
   
+  window.addEventListener('DOMContentLoaded', function () {
+    const instructions = document.querySelector('.instructions');
+    
+    instructions.addEventListener('click', function () {
+      hideInstructions();
+    });
+    
+    setTimeout(function () {
+      hideInstructions();
+    }, 5000);
+    
+    function hideInstructions() {
+      instructions.classList.add('hide');
+    }
+  });
+  
