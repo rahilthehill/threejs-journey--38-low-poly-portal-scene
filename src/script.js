@@ -205,9 +205,17 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.autoRotate = true
+controls.autoRotateSpeed  = 0.05
+controls.dampingFactor = 0.02
+controls.minDistance = 2
+controls.maxDistance = 10
+controls.maxPolarAngle = 1.2
+controls.minPolarAngle = 0
 
+gui.close()
 //FOG
-// scene.fog = new THREE.Fog(0x2F342D, 3, 19 );
+//scene.fog = new THREE.Fog(0x2F342D, 3, 19 );
 //commented out
 
 
