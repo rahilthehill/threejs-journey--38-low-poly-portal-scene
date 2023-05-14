@@ -92,16 +92,17 @@ gltfLoader.load(
  */
 
 //geometry 
+
 const firefliesGeometry = new THREE.BufferGeometry()
-const firefliesCount = 50
+const firefliesCount = 80
 const positionArray = new Float32Array(firefliesCount * 3)
 const scaleArray = new Float32Array(firefliesCount)
 
 for(let i = 0; i < firefliesCount; i++) {
 
-    positionArray[i * 3 + 0] = (Math.random() - 0.5) * 5
-    positionArray[i * 3 + 1] = Math.random() * 1.5
-    positionArray[i * 3 + 2] = (Math.random() - 0.5) * 5
+    positionArray[i * 3 + 0] = (Math.random() - 0.5) * 8
+    positionArray[i * 3 + 1] = Math.random() * 1.5 + 0.2
+    positionArray[i * 3 + 2] = (Math.random() - 0.5) * 8
 
     scaleArray[i] = Math.random()
 }
@@ -116,7 +117,7 @@ const firefliesMaterial = new THREE.ShaderMaterial({
     {
         uTime: {value:0},
         uPixelRatio: {value: Math.min(window.devicePixelRatio, 2 )},
-        uSize: {value: 80}
+        uSize: {value: 88}
     },
     
     vertexShader: firefliesVertexShader,
@@ -177,6 +178,11 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+
+//FOG
+// scene.fog = new THREE.Fog(0x2F342D, 3, 19 );
+
+
 
 /**
  * Renderer
